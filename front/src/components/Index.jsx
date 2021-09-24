@@ -10,7 +10,6 @@ const Index = () => {
 	const getData = async() => {
 		const response = await fetch('http://localhost:8080/api/folders');
 		const data = await response.json();
-		console.log("asdasdasd",data);
 		setList(data);
 	}
 	useEffect(() => {
@@ -18,7 +17,6 @@ const Index = () => {
 	},[])
 
 	const handleAddItem = async addItem => {
-		console.log("addItem: ", addItem)
 		await fetch('http://localhost:8080/api/folders', {
 			method: 'POST',
 			headers: {
@@ -31,6 +29,7 @@ const Index = () => {
 
 	return (
 		<div>	
+			<div className="todo-list">
 			{!folder ? (
 				<>
 					<FolderList list={list} setList={setList} setFolder={setFolder} />
@@ -41,6 +40,7 @@ const Index = () => {
 					<Container folder={folder} setFolder={setFolder} />
 				</>
 			)}
+			</div>
 		</div>
 	);
 };

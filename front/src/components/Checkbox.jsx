@@ -10,6 +10,7 @@ const Checkbox = props => {
 
 			<label>
 				<input
+					class="check"
 					name={id}
 					type="checkbox"
 					defaultChecked={check}

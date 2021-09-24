@@ -12,9 +12,10 @@ const FormFolder = props => {
 	};
 	return (
 		<form onSubmit={handleSubmit}>
-			<div className="todo-list">
-				<div className="file-input">
+			
+				<div>
 					<input
+						class="inputt"
 						type="text"
 						className="text"
 						placeholder="New Folder"
@@ -22,13 +23,13 @@ const FormFolder = props => {
 						onChange={e => setName(e.target.value)}
 					/>
 					<button
-						className="button pink"
+						className="button"
 						disabled={name ? "" : "disabled"}
 					>
-						Add Folder
+					Add Folder
 					</button>
 				</div>
-			</div>
+			
 		</form>
 	);
 };

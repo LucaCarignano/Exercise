@@ -11,7 +11,8 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       references: {
         model: 'folders',
-        key: 'id'
+        key: 'id',
+        onDelete: 'cascade'//TODO
       }
     }
   });

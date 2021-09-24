@@ -14,9 +14,10 @@ const FormTodo = props => {
 	};
 	return (
 		<form onSubmit={handleSubmit}>
-			<div className="todo-list">
+			<div>
 				<div>
 					<input
+						class="inputt"
 						type="text"
 						className="text"
 						placeholder="New Task"

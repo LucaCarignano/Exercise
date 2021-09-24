@@ -3,8 +3,7 @@ import Checkbox from "./Checkbox";
 import Edit from "./Edit"
 
 const TaskList = props => {
-	const { list, getData } = props;
-	const [ editing, setEditing ] = useState(false);
+	const { list, getData, editing, setEditing } = props;
 	const [ editItem, setEditItem ] = useState(null);
 
 	const onChangeStatus = async e => {
@@ -51,15 +50,16 @@ const TaskList = props => {
 	}
 
 	const chk = list.map(item => (
-		<div>
-			<Checkbox key={item.id} data={item} onChange={onChangeStatus} />
-			<a href="#" onClick={() => editTask(item)}>edit</a>
-		</div>
+			<div style={{position:'left', padding:'10px'}}>
+				<Checkbox key={item.id} data={item} onChange={onChangeStatus} />
+				<button class="access" onClick={() => editTask(item)}>edit</button>
+			</div>
 	));
 	return (
-		<div className="todo-list">
-			{list.length ? chk : "No tasks"}
-			{list.length ? (
+		<div>
+			{!list.length ? "No tasks"
+			: list.length && !editing ? chk : null}
+			{(list.length && !editing) ? (
 				<p>
 					<button onClick={onClickRemoveItem}>
 						Delete all done

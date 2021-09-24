@@ -25,20 +25,22 @@ const FolderList = props => {
 	};
 
 	const chk = list.map(item => (
-	  <div>
-      <a style={{width:'400px'}}>- {item.name}</a>
-      <a href='#' onClick={() => setFolder(item)}>View items</a>
-      <a href='#' onClick={() => onClickRemoveItem(item.id)}>
-        Delete
-      </a>
-    </div>
+      <tr>
+        <td><a style={{margin:'0px'}}>- {item.name}</a></td>
+        <td><button style={{position:'relative', left:'30px'}} class="access" onClick={() => setFolder(item)}>
+          View items
+        </button></td>
+        <td><button style={{position:'relative', left:'80px'}} class="access" onClick={() => onClickRemoveItem(item.id)}>
+          Delete
+        </button></td>
+      </tr>
 	));
 	return (
   <div>
-    <div className="todo-list">
-      Folders
+      <div style = {{position:'relative', right:'120px', padding:'10px'}}>
+        Folders
+      </div>
       {list.length ? chk : "No Tasks"}
-    </div>
   </div>
 	);
 };

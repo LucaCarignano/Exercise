@@ -16,7 +16,8 @@ exports.create = (req, res) => {
   // Create a task
   const task = {
     description: req.body.description,
-    check: req.body.check
+    check: req.body.check,
+    folder_id: req.body.folder_id
   };
 
   // Save task in the database
@@ -133,7 +134,7 @@ exports.deleteAll = (req, res) => {
 exports.findByFolder = (req, res) => {
   console.log("entre al metodo ", req.body)
   const id = req.params.id;
-  Task.findAll({ where: { id: id } })
+  Task.findAll({ where: { folder_id: id } })
     .then(data => {
       res.send(data);
     })

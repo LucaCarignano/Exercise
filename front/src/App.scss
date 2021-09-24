@@ -22,3 +22,38 @@ body {
   padding: 8px 16px;
   border: 2px solid gray;
 }
+
+.button{
+  padding: 8px 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.access {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;  
+  color: blue;
+  text-decoration: underline;
+}
+
+.inputt {
+  padding: 8px 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: red;
+}
+
+.text {
+  height: 16px;
+  padding: 8px 16px;
+  margin: 16px 32px;
+}
+
+.arrow {
+  font-size: x-large;
+  cursor: pointer;
+}
