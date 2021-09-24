@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import FolderList from "./FolderList";
 import FormFolder from "./FormFolder";
+import Container from "./Container";
 
 const Index = () => {
 	const [list, setList] = useState([]);
+	const [folder, setFolder] = useState(null);
 	const getData = async() => {
 		const response = await fetch('http://localhost:8080/api/folders');
 		const data = await response.json();
@@ -28,9 +30,17 @@ const Index = () => {
 	};
 
 	return (
-		<div>
-			<FormFolder handleAddItem={handleAddItem} />
-			<FolderList list={list} setList={setList} />
+		<div>	
+			{!folder ? (
+				<>
+					<FolderList list={list} setList={setList} setFolder={setFolder} />
+					<FormFolder handleAddItem={handleAddItem} />	
+				</>	
+				) : (	
+				<>
+					<Container folder={folder} setFolder={setFolder} />
+				</>
+			)}
 		</div>
 	);
 };

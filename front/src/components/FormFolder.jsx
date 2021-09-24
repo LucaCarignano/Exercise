@@ -17,6 +17,7 @@ const FormFolder = props => {
 					<input
 						type="text"
 						className="text"
+						placeholder="New Folder"
 						value={name}
 						onChange={e => setName(e.target.value)}
 					/>
@@ -24,7 +25,7 @@ const FormFolder = props => {
 						className="button pink"
 						disabled={name ? "" : "disabled"}
 					>
-						Add
+						Add Folder
 					</button>
 				</div>
 			</div>

@@ -1,15 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Checkbox from "./Checkbox";
+import Edit from "./Edit"
 
 const TaskList = props => {
-	const { list, setList } = props;
-
-	const getData = async() => {
-		const response = await fetch('http://localhost:8080/api/tasks');
-		const data = await response.json();
-		//console.log("asdasdasd",data);
-		setList(data);
-	}
+	const { list, getData } = props;
+	const [ editing, setEditing ] = useState(false);
+	const [ editItem, setEditItem ] = useState(null);
 
 	const onChangeStatus = async e => {
 		const { name, checked: check } = e.target;
@@ -19,6 +15,17 @@ const TaskList = props => {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({check})
+		});
+		getData();
+	};
+
+	const handlerUpdate = async (id, description) => {
+		await fetch(`http://localhost:8080/api/tasks/${id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({description})
 		});
 		getData();
 	};
@@ -38,9 +45,15 @@ const TaskList = props => {
 		getData();
 	};
 
+	const editTask = (item) => {
+		setEditing(true);
+		setEditItem(item);
+	}
+
 	const chk = list.map(item => (
 		<div>
 			<Checkbox key={item.id} data={item} onChange={onChangeStatus} />
+			<a href="#" onClick={() => editTask(item)}>edit</a>
 		</div>
 	));
 	return (
@@ -53,6 +66,7 @@ const TaskList = props => {
 					</button>
 				</p>
 			) : null}
+			{editing && <Edit item={editItem} handlerUpdate={handlerUpdate} setEditing={setEditing}/>}
 		</div>
 	);
 };
