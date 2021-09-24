@@ -3,12 +3,11 @@ import React, { useState, useEffect } from "react";
 import TaskList from "./TaskList";
 import FormTodo from "./FormTodo";
 
-const Container = (fid) => {
+const Container = () => {
 	const [list, setList] = useState([]);
 	const getData = async() => {
-		const response = await fetch(`http://localhost:8080/api/tasks/folder/${fid}`);
+		const response = await fetch('http://localhost:8080/api/tasks');
 		const data = await response.json();
-		//console.log("asdasdasd",data);
 		setList(data);
 	}
 	useEffect(() => {

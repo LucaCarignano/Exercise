@@ -39,14 +39,16 @@ const TaskList = props => {
 	};
 
 	const chk = list.map(item => (
-		<Checkbox key={item.id} data={item} onChange={onChangeStatus} />
+		<div>
+			<Checkbox key={item.id} data={item} onChange={onChangeStatus} />
+		</div>
 	));
 	return (
 		<div className="todo-list">
 			{list.length ? chk : "No tasks"}
 			{list.length ? (
 				<p>
-					<button className="button blue" onClick={onClickRemoveItem}>
+					<button onClick={onClickRemoveItem}>
 						Delete all done
 					</button>
 				</p>

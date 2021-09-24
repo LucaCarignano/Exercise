@@ -14,7 +14,7 @@ const FormTodo = props => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div className="todo-list">
-				<div className="file-input">
+				<div>
 					<input
 						type="text"
 						className="text"
@@ -22,7 +22,6 @@ const FormTodo = props => {
 						onChange={e => setDescription(e.target.value)}
 					/>
 					<button
-						className="button pink"
 						disabled={description ? "" : "disabled"}
 					>
 						Add
