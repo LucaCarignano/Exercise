@@ -1,6 +1,6 @@
 # Exercise
 
-Para correr el proyecyo se necesitara crear un esquema en mysql y modificar el config.js para que quede con las variables adecuadas. Aclaración: No agregué un .env para que sea mas sencillo la configuración del proyecto.
+Para correr el proyecyo se necesitara crear un esquema en mysql y modificar el archivo 'db.config.js' ubicado en '/back/config/db.config.js' para que quede con las variables adecuadas. Aclaración: No agregué un .env para que sea mas sencillo la configuración del proyecto.
 
 Una vez realizado el paso anterior, solo se debera correr el .sh y el proyecto se deberá levantar por sí solo.
 
