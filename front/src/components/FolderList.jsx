@@ -26,13 +26,21 @@ const FolderList = props => {
 
 	const chk = list.map(item => (
       <tr>
-        <td><a style={{margin:'0px'}}>- {item.name}</a></td>
-        <td><button style={{position:'relative', left:'30px'}} class="access" onClick={() => setFolder(item)}>
-          View items
-        </button></td>
-        <td><button style={{position:'relative', left:'80px'}} class="access" onClick={() => onClickRemoveItem(item.id)}>
-          Delete
-        </button></td>
+        <td style={{padding:'10px'}}>
+          <a style={{margin:'0px'}}>
+            - {item.name}
+          </a>
+        </td>
+        <td>
+          <button style={{position:'relative', left:'30px'}} class="access" onClick={() => setFolder(item)}>
+            View items
+          </button>
+        </td>
+        <td>
+          <button style={{position:'relative', left:'80px'}} class="access" onClick={() => onClickRemoveItem(item.id)}>
+            Delete
+          </button>
+        </td>
       </tr>
 	));
 	return (

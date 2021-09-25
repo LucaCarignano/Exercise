@@ -10,26 +10,28 @@ const Edit = ({ item, setEditing, handlerUpdate }) => {
   }
 
 	return (
-    <form style={{padding:'20px'}} onSubmit={handlerSubmit}>
-      Editing Task "{item.description}"
-    <div className="todo-list">
+    <form onSubmit={handlerSubmit}>
+      <div style={{padding:'20px'}}> Editing Task "{item.description}"</div>
+    <div>
       <div>
         <input
           class="inputt"
           type="text"
-          className="text"
           placeholder="New task description"
           value={description}
           onChange={e => setDescription(e.target.value)}
         />
-        <button
+        <div><button
+          class="button"
           disabled={description ? "" : "disabled"}
         >
           Save
         </button>
-        <button onClick={()=>setEditing(false)}>
-          Cancel
-        </button>
+        <button 
+          class="button"
+          onClick={()=>setEditing(false)}>
+            Cancel
+        </button></div>
       </div>
     </div>
   </form>

@@ -19,12 +19,12 @@ const FormTodo = props => {
 					<input
 						class="inputt"
 						type="text"
-						className="text"
 						placeholder="New Task"
 						value={description}
 						onChange={e => setDescription(e.target.value)}
 					/>
 					<button
+						class="button"
 						disabled={description ? "" : "disabled"}
 					>
 						Add Task

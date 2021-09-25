@@ -17,7 +17,6 @@ const FormFolder = props => {
 					<input
 						class="inputt"
 						type="text"
-						className="text"
 						placeholder="New Folder"
 						value={name}
 						onChange={e => setName(e.target.value)}

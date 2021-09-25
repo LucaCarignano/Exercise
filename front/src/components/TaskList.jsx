@@ -50,10 +50,12 @@ const TaskList = props => {
 	}
 
 	const chk = list.map(item => (
-			<div style={{position:'left', padding:'10px'}}>
-				<Checkbox key={item.id} data={item} onChange={onChangeStatus} />
-				<button class="access" onClick={() => editTask(item)}>edit</button>
-			</div>
+			<tr>
+				<td style={{padding:'10px'}}>
+					<Checkbox key={item.id} data={item} onChange={onChangeStatus} /></td>
+				<td>	<button style={{position:'relative', left:'80px'}} class="access" onClick={() => editTask(item)}>edit</button>
+				</td>
+			</tr>
 	));
 	return (
 		<div>
