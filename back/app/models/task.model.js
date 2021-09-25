@@ -12,8 +12,8 @@ module.exports = (sequelize, Sequelize) => {
       references: {
         model: 'folders',
         key: 'id',
-        onDelete: 'cascade'//TODO
-      }
+      },
+      onDelete: 'cascade'
     }
   });
   return Task;
